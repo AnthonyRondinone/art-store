@@ -3,10 +3,6 @@ import React from 'react';
 import style from './HelloWorld.module.css';
 
 const HelloWorld = ({ name, updateName }) => {
-
-  const onKeyDown = () => {
-    debugger
-  }
   return (
   <div>
     <h3>
@@ -16,7 +12,7 @@ const HelloWorld = ({ name, updateName }) => {
     <hr />
       <label className={style.bright} htmlFor="name">
         Say hello to:
-        <input id="name" type="text" value={name} onKeyDown={onKeyDown} onChange={(e) => updateName(e.target.value)} />
+        <input id="name" type="text" value={name} onChange={(e) => updateName(e.target.value)} />
       </label>
   </div>
 )};
