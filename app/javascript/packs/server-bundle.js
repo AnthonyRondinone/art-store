@@ -1,8 +1,8 @@
 import ReactOnRails from 'react-on-rails';
 
-import HelloWorld from '../bundles/HelloWorld/components/HelloWorldServer';
+import ArtStore from '../bundles/ArtStore/components/ArtStoreServer';
 
-// This is how react_on_rails can see the HelloWorld in the browser.
+// This is how react_on_rails can see the ArtStore in the browser.
 ReactOnRails.register({
-  HelloWorld,
+  ArtStore,
 });
