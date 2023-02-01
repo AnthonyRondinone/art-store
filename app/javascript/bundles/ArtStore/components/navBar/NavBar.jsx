@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const LandingPage = () => {
+const NavBar = () => {
   return (
   <div>
-    Art Store
+    Nav Bar
   </div>
 )};
 
-LandingPage.propTypes = {};
+NavBar.propTypes = {};
 
-export default LandingPage;
+export default NavBar;

@@ -1,5 +1,27 @@
-import LandingPage from './landingPage/LandingPage';
+import React from 'react';
+import LandingPageContainer from '../containers/LandingPageContainer';
+import NavBarContainer from '../containers/NavBarContainer';
+import './stylesheets/MainLayout.css'
+import { Routes, Route } from 'react-router-dom';
+
 // This could be specialized for server rendering
 // For example, if using React-Router, we'd have the SSR setup here.
+
+const ArtStore = () => (
+    <div className='main-body'>
+        <header>
+            <NavBarContainer component={NavBarContainer} />
+        </header>
+        <div className='main'>
+            <aside className='left' />
+            <main>
+                <Routes>
+                    <Route path="/" element={ <LandingPageContainer/> } />
+                </Routes>
+            </main>
+            <aside className='right' />
+        </div>
+    </div>
+  );
 
 export default ArtStore;

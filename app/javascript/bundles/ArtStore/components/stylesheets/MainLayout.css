@@ -1,0 +1,55 @@
+*{
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.main-body {
+    height: 95vh;
+    font-family: sans-serif;
+    text-align: center;
+    color: Black;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 2em 0 2em 0;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+
+.left {
+    padding: 3em 0 3em 0;
+    flex: 1 1 100px;
+}
+
+main {
+    background: lightblue;
+    padding: 3em 0 3em 0;
+    flex: 5 5 150px;
+}
+
+.right {
+    padding: 3em 0 3em 0;
+    flex: 1 1 100px;
+}
+
+@media all and (max-width: 1000px) {
+    .main {
+        flex-direction: column;
+    }
+    main {
+        padding: 5em 0 5em 0;
+    }
+    .left, .right {
+        padding: 0;
+        margin: 0;
+        flex: 0;
+        height: 0;
+    }
+}
