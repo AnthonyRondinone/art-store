@@ -1,6 +1,7 @@
 import React from 'react';
 import LandingPageContainer from '../containers/LandingPageContainer';
 import NavBarContainer from '../containers/NavBarContainer';
+import TheStoryContainer from '../containers/TheStoryContainer';
 import './stylesheets/MainLayout.css'
 import { Routes, Route } from 'react-router-dom';
 
@@ -16,7 +17,8 @@ const ArtStore = () => (
             <aside className='left' />
             <main>
                 <Routes>
-                    <Route path="/" element={ <LandingPageContainer/> } />
+                    <Route path="/" element={ <LandingPageContainer /> } />
+                    <Route path="/thestory" element={<TheStoryContainer /> } />
                 </Routes>
             </main>
             <aside className='right' />

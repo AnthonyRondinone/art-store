@@ -1,11 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import NavBarOption from './NavBarOption';
 
 const NavBar = () => {
-  return (
-  <div>
-    Nav Bar
-  </div>
+
+    const navOptions = () => {
+        return ['GALLERY', 'MAILING LIST', 'THE STORY', 'CONTACT'].map((navOption, i) => {
+            return <NavBarOption key={i} title={navOption} />
+        })
+    }
+
+    return (
+    <ul className='nav-options-ul'>
+        {navOptions()}
+    </ul>
 )};
 
 NavBar.propTypes = {};

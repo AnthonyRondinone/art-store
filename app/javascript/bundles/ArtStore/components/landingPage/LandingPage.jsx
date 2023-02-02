@@ -3,9 +3,9 @@ import React from 'react';
 
 const LandingPage = () => {
   return (
-  <div>
+  <>
     Art Store
-  </div>
+  </>
 )};
 
 LandingPage.propTypes = {};
