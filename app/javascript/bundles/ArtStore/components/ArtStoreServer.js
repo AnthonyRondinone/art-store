@@ -2,6 +2,8 @@ import React from 'react';
 import LandingPageContainer from '../containers/LandingPageContainer';
 import NavBarContainer from '../containers/NavBarContainer';
 import TheStoryContainer from '../containers/TheStoryContainer';
+import GalleryContainer from '../containers/GalleryContainer';
+import ContactContainer from '../containers/ContactContainer';
 import './stylesheets/MainLayout.css'
 import { Routes, Route } from 'react-router-dom';
 
@@ -18,7 +20,9 @@ const ArtStore = () => (
             <main>
                 <Routes>
                     <Route path="/" element={ <LandingPageContainer /> } />
+                    <Route path="/gallery" element={<GalleryContainer /> } />
                     <Route path="/thestory" element={<TheStoryContainer /> } />
+                    <Route path="/contact" element={<ContactContainer /> } />
                 </Routes>
             </main>
             <aside className='right' />

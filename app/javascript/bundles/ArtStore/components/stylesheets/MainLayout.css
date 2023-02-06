@@ -68,5 +68,13 @@ ul {
 
 .nav-option-link {
     color: inherit;
+    cursor: pointer;
     text-decoration: none;
 }
+
+.nav-option-link:hover {
+    color: inherit;
+}
+
+/* Modal */
+

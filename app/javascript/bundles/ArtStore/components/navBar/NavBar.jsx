@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import NavBarOption from './NavBarOption';
+import { NavBarOption } from './NavBarOption';
 
 const NavBar = () => {
 
