@@ -1,6 +1,7 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import artStoreReducer from '../reducers/artStoreReducer';
+import thunk from 'redux-thunk';
 
-const configureStore = (railsProps) => createStore(artStoreReducer, railsProps);
+const configureStore = () => createStore(artStoreReducer, applyMiddleware(thunk));
 
 export default configureStore;

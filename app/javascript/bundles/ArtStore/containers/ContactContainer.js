@@ -7,4 +7,4 @@ const mapStateToProps = () => ({});
 // Don't forget to actually use connect!
 // Note that we don't export LandingPage, but the redux "connected" version of it.
 // See https://github.com/reactjs/react-redux/blob/master/docs/api.md#examples
-export default connect(mapStateToProps)(Contact); ``
+export default connect(mapStateToProps)(Contact);

@@ -29,8 +29,7 @@ header {
 }
 
 main {
-    background: lightblue;
-    padding: 3em 0 3em 0;
+    padding: 1em 0 3em 0;
     flex: 5 5 150px;
 }
 
@@ -78,3 +77,52 @@ ul {
 
 /* Modal */
 
+.alert-ok {
+    color: green;
+}
+
+.alert-error {
+    color: red;
+}
+
+.primary-button {
+    background: #5b5b5b !important;
+    color: white !important;
+    border: 1px solid black !important;
+    border-radius: 0 !important;
+}
+
+.secondary-button {
+    background: transparent !important;
+    color: black !important;
+    border: 1px solid black !important;
+    border-radius: 0 !important;
+}
+
+
+/* Dropzone */
+
+.dropzone-upload-container {
+    height: 150px;
+    display: flex;
+    border: 1px solid;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropzone-prompt {
+    font-size: 18px;
+    color: darkgray;
+}
+
+.img-wrap {
+    position: relative;
+}
+
+.img-wrap .close {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    z-index: 100;
+}
