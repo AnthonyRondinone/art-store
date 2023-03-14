@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resource :users
+  resources :users
+  resources :paintings
   root 'landing_page#index'
   get '/*path' => 'landing_page#index'
 end

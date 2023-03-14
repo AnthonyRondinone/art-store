@@ -19,6 +19,7 @@ header {
 
 .main {
     display: flex;
+    justify-content: center;
     flex: 1;
     height: 100%;
 }
@@ -29,8 +30,9 @@ header {
 }
 
 main {
-    padding: 1em 0 3em 0;
-    flex: 5 5 150px;
+    padding: 1em 0 2em 0;
+    display: flex;
+    justify-content: center;
 }
 
 .right {
@@ -38,12 +40,21 @@ main {
     flex: 1 1 100px;
 }
 
+.painting-show-contain {
+    display: flex;
+}
+
+.painting-details-contain {
+    text-align: left;
+}
+
 @media all and (max-width: 1000px) {
-    .main {
+    .main .painting-show-contain {
         flex-direction: column;
+        align-items: center;
     }
     main {
-        padding: 5em 0 5em 0;
+        padding: 2em 0 5em 0;
     }
     .left, .right {
         padding: 0;
@@ -51,11 +62,19 @@ main {
         flex: 0;
         height: 0;
     }
+    .painting-details-contain {
+        text-align: center;
+    }
 }
 
 /* NavBar */
 
 ul {
+    list-style-type: none;
+    padding-left: 0em !important;
+}
+
+li {
     list-style-type: none;
 }
 
@@ -102,10 +121,13 @@ ul {
 
 /* Dropzone */
 
-.dropzone-upload-container {
-    height: 150px;
+.drop-zone-contain {
     display: flex;
-    border: 1px solid;
+}
+
+.dropzone-upload-container {
+    height: 36px;
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -125,4 +147,167 @@ ul {
     top: 1px;
     right: 1px;
     z-index: 100;
+    cursor: pointer;
+}
+
+.img {
+    display: block;
+    width: auto;
+    height: 100%
+}
+
+.thumb-inner {
+    display: flex;
+    min-width: 0;
+    overflow: hidden
+}
+
+.thumb {
+    display: inline-flex;
+    border-radius: 2;
+    border: 1px solid #eaeaea;
+    margin-bottom: 8;
+    margin-right: 8;
+    width: 100px;
+    height: 100px;
+    padding: 4;
+    box-sizing: border-box;
+    cursor: pointer
+}
+
+.main-inner {
+    display: flex;
+    min-width: 0;
+    overflow: hidden
+}
+
+.main-image {
+    display: flex;
+    border-radius: 2;
+    /* border: 1px solid #eaeaea; */
+    height: 400px;
+    min-width: 340px;
+    max-width: 340px;
+    width: 340px;
+    overflow: hidden;
+    padding: 4;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thumbs-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 16;
+    justify-content: center;
+}
+
+/* Details for Painting */
+
+.details-contain {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+label {
+    font-family: system-ui;
+    font-size: initial;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-family: system-ui;
+    font-size: initial;
+    font-weight: 300;
+    text-align: center;
+}
+
+input, textarea {
+    font-family: system-ui !important;
+    font-size: 17px !important;
+    text-align: center;
+    border: 1px solid #ffffff;
+}
+
+.title {
+    font-size: 40px !important;
+    color: #676767;
+}
+.story {
+    font-size: 14px !important;
+    font-weight: 300;
+    height: 100px;
+}
+
+.dimensions, 
+.price, 
+.medium {
+    line-height: normal !important;
+}
+
+.dimensions, 
+.medium {
+    color: #8b8b8b;
+    font-size: 12px !important;
+}
+
+.price {
+    font-size: 22px !important;
+    color: #424242;
+}
+
+/* Gallery */
+
+.paintings-contain {
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.li-painting-contain {
+    cursor: pointer;
+    display: inline-block;
+    list-style: none;
+}
+
+.painting-contain-title {
+    max-width: 275px;
+    margin: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.painting-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #757575;
+}
+
+.painting-dimentions {
+    font-size: 16px;
+    color: #757575;
+}
+
+.painting-price {
+    letter-spacing: .6rem;
+}
+
+.painting-medium {
+    color: #757575;
+    font-size: 16px;
+}
+
+.painting-story {
+    font-size: 14px;
+    max-width: 450px;
 }

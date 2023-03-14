@@ -5,6 +5,7 @@ import TheStoryContainer from '../containers/TheStoryContainer';
 import GalleryContainer from '../containers/GalleryContainer';
 import ContactContainer from '../containers/ContactContainer';
 import { PaintingModify } from '../components/gallery/PaintingModify';
+import { PaintingShow } from '../components/gallery/PaintingShow';
 import './stylesheets/MainLayout.css'
 import { Routes, Route } from 'react-router-dom';
 
@@ -24,6 +25,7 @@ const ArtStore = () => (
                     <Route path="/gallery" element={<GalleryContainer /> } />
                     <Route path="/thestory" element={<TheStoryContainer /> } />
                     <Route path="/contact" element={<ContactContainer /> } />
+                    <Route path="/painting/:id" element={<PaintingShow /> } />
                     <Route path="/painting/:id/edit" element={<PaintingModify /> } />
                 </Routes>
             </main>

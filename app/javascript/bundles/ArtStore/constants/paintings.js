@@ -1,0 +1,1 @@
+export const UPDATE_PAINTINGS = "UPDATE_PAINTINGS";

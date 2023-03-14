@@ -19,8 +19,9 @@ gem "puma", "~> 5.0"
 
 gem 'pry'
 
-gem 'rack-cors'
+gem 'aws-sdk-s3', require: false
 
+gem 'rack-cors'
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
@@ -83,3 +84,5 @@ end
 gem "react_on_rails", "= 13.2"
 
 gem "shakapacker", "= 6.5"
+
+gem "jsonapi-serializer", "~> 2.2"
