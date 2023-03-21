@@ -37,16 +37,14 @@ export const ImagesEditor = ({
             'image/*': []
         },
         onDrop: acceptedFiles => {
-            const files = acceptedFiles;
-            for (var i = 0; i < files.length; i++) {
-                const file = files[i];
+            acceptedFiles.forEach((file) => {
                 const fileReader = new FileReader();
                 fileReader.addEventListener('load', () => {
                     setAltImages(prevState => [...prevState, file])
                     setAltImageURLs((prevState) => [...prevState, fileReader.result]);
                 }, { once: true });
                 fileReader.readAsDataURL(file)
-            }
+            })
         }
     });
 
