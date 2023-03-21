@@ -7,8 +7,9 @@ export const NavBar = ({
     saveUserToEmailList,
     updateMailiglistNotification,
 }) => {
+    const optionNames = ['GALLERY', 'MAILING LIST', 'THE STORY', 'CONTACT'];
     const navOptions = () => {
-        return ['GALLERY', 'MAILING LIST', 'THE STORY', 'CONTACT'].map((optionName, i) => {
+        return optionNames.map((optionName, i) => {
             return <NavBarOption 
                         mailingListNotifications={mailingListNotifications}
                         updateMailiglistNotification={updateMailiglistNotification}

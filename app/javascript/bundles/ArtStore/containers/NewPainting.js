@@ -5,7 +5,7 @@ import { createPainting } from '../actions/paintingsActions'
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
-    createPainting: (details, featuredImage, altImages) => dispatch(createPainting(details, featuredImage, altImages)),
+    createPainting: (detailRefs, featuredImage, altImages) => dispatch(createPainting(detailRefs, featuredImage, altImages)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewPainting);

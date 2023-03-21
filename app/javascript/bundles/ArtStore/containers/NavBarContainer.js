@@ -2,9 +2,10 @@
 import { connect } from 'react-redux';
 import { NavBar } from '../components/navBar/NavBar';
 import { saveUserToEmailList, updateMailiglistNotification } from '../actions/mailingListActions'
+import { getMailingListNotifications } from '../selectors/notifications'
 
 const mapStateToProps = (state) => ({
-    mailingListNotifications: state.notifications.mailingList,
+    mailingListNotifications: getMailingListNotifications(state),
 });
 
 const mapDispatchToProps = dispatch => ({
