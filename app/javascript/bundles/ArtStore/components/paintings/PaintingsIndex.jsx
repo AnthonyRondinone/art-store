@@ -16,7 +16,6 @@ export const PaintingsIndex = ({
         return paintings.map((painting) => {
             return (
                 <Link
-                    className='nav-option-link'
                     key={painting.id}
                     to={`/painting/${painting.id}`}
                     state={painting}

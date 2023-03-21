@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useLocation, useParams } from "react-router-dom"
+import React, { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom"
 import { FeaturedImage, PaintingDetails, AltImages } from './paintingSubComponents'
 
 export const PaintingShow = () => {
@@ -11,12 +11,13 @@ export const PaintingShow = () => {
     const [altImagesURLData, setAltImagesURLData] = useState(
             painting.alt_images_url_data
         );
+    const [allImages] = useState([...altImagesURLData, featuredImageURLData]);
+    const [featuredImageId, setFeaturedImageId] = useState(painting.featured_image_url_data.id);
 
-    const updateFeaturedImage = (imageID) => {
-        const allImages = [...altImagesURLData, featuredImageURLData];
-        setFeaturedImageURLData(allImages.find(image => image.id === imageID));
-        setAltImagesURLData(allImages.filter(image => image.id !== imageID));
-    }
+    useEffect(() => {
+        setFeaturedImageURLData(allImages.find(image => image.id === featuredImageId));
+        setAltImagesURLData(allImages.filter(image => image.id !== featuredImageId));
+    }, [featuredImageId]);
 
     return (
         <div className='painting-show-contain'>
@@ -26,7 +27,7 @@ export const PaintingShow = () => {
                 />
                 <AltImages
                     altImagesURLData={altImagesURLData}
-                    updateFeaturedImage={updateFeaturedImage}
+                    setFeaturedImageId={setFeaturedImageId}
                 />
             </div>
             < PaintingDetails

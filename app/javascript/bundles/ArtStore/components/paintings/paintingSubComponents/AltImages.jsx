@@ -3,13 +3,13 @@ import React from 'react';
 
 export const AltImages = ({
     altImagesURLData,
-    updateFeaturedImage,
+    setFeaturedImageId,
 }) => {
     const altImageThumbNails = altImagesURLData.map((altImageURLData, idx) => (
         <div className='img-wrap' key={`${idx}`} >
             <div
                 className='alt-image-thumb' 
-                onClick={() => updateFeaturedImage(altImageURLData.id)}
+                onClick={() => setFeaturedImageId(altImageURLData.id)}
             >
                 <div className='alt-image-thumb-inner' >
                     <img
@@ -29,7 +29,7 @@ export const AltImages = ({
 };
 
 AltImages.propTypes = {
-    updateFeaturedImage: PropTypes.func.isRequired,
+    setFeaturedImageId: PropTypes.func.isRequired,
     altImagesURLData: PropTypes.arrayOf(PropTypes.shape({
         image_url: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
