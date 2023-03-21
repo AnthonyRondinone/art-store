@@ -2,15 +2,12 @@ import React from 'react';
 import LandingPageContainer from '../containers/LandingPageContainer';
 import NavBarContainer from '../containers/NavBarContainer';
 import TheStoryContainer from '../containers/TheStoryContainer';
-import GalleryContainer from '../containers/GalleryContainer';
+import PaintingsIndexContainer from '../containers/PaintingsIndexContainer';
 import ContactContainer from '../containers/ContactContainer';
-import { PaintingModify } from '../components/gallery/PaintingModify';
-import { PaintingShow } from '../components/gallery/PaintingShow';
+import NewPainting from '../containers/NewPainting';
+import { PaintingShow } from './paintings/PaintingShow';
 import './stylesheets/MainLayout.css'
 import { Routes, Route } from 'react-router-dom';
-
-// This could be specialized for server rendering
-// For example, if using React-Router, we'd have the SSR setup here.
 
 const ArtStore = () => (
     <div className='main-body'>
@@ -22,11 +19,11 @@ const ArtStore = () => (
             <main>
                 <Routes>
                     <Route path="/" element={ <LandingPageContainer /> } />
-                    <Route path="/gallery" element={<GalleryContainer /> } />
+                    <Route path="/gallery" element={<PaintingsIndexContainer /> } />
                     <Route path="/thestory" element={<TheStoryContainer /> } />
                     <Route path="/contact" element={<ContactContainer /> } />
                     <Route path="/painting/:id" element={<PaintingShow /> } />
-                    <Route path="/painting/:id/edit" element={<PaintingModify /> } />
+                    <Route path="/painting/new" element={<NewPainting /> } />
                 </Routes>
             </main>
             <aside className='right' />

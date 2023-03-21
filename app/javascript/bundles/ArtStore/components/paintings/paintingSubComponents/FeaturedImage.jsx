@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export const FeaturedImage = ({
-    featuredImageURL
+    featuredImageURLData,
 }) => {
     return (
         <div
@@ -11,11 +11,16 @@ export const FeaturedImage = ({
             <div className='main-inner'>
                 <img 
                     className='img'
-                    src={featuredImageURL}
+                    src={featuredImageURLData.image_url}
                 />
             </div>
         </div>
     )
 };
 
-FeaturedImage.propTypes = {};
+FeaturedImage.propTypes = {
+    featuredImageURLData: PropTypes.shape({
+        image_url: PropTypes.string.isRequired,
+        id: PropTypes.number,
+    }).isRequired
+};

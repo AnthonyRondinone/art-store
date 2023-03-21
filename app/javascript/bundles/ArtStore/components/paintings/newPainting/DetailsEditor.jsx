@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export const DetailsEditor = ({
     details,
-    setDetails
+    setDetails,
 }) => {
 
     const handleDetailChange = (e) => {
         setDetails((prevState) => ({
-            ...prevState, [e.target.className]: e.target.value
+            ...prevState, 
+            [e.target.className]: e.target.value
         }))
     }
 
@@ -41,4 +43,15 @@ export const DetailsEditor = ({
             />
         </div>
     );
+}
+
+DetailsEditor.propTypes = {
+    setDetails: PropTypes.func.isRequired,
+    details: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        dimensions: PropTypes.string.isRequired,
+        price: PropTypes.string.isRequired,
+        medium: PropTypes.string.isRequired,
+        story: PropTypes.string.isRequired,
+    }).isRequired
 }

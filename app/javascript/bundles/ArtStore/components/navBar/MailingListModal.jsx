@@ -38,8 +38,15 @@ export const MailingListModal = ({
         if (mailingListNotifications.notifications.length > 0) {
             return (
                 <div>
-                    {mailingListNotifications.notifications.map(
-                        (s, idx) => <div key={idx} className={`alert-${mailingListNotifications.type}`}>{s}<br /></div>
+                    {mailingListNotifications.notifications.map((notification, idx) => {
+                        return (
+                                <div key={idx} className={`alert-${mailingListNotifications.type}`}>
+                                    {notification}
+                                    <br />
+                                </div>
+                                )
+
+                        }
                     )}
                 </div>
             )

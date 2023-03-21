@@ -10,11 +10,10 @@ class Painting < ApplicationRecord
     end
 
     def featured_image_url_data
-        # binding.pry
-        { id: featured_image.id, featured_image_url: featured_image.url }
+        { id: featured_image.id, image_url: featured_image.url }
     end
 
     def alt_images_url_data
-        alt_images.map{|alt_image| { id: alt_image.id, alt_image_url: alt_image.url }}
+        alt_images.map{|alt_image| { id: alt_image.id, image_url: alt_image.url }}
     end
 end

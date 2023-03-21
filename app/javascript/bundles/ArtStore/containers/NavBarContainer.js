@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
     saveUserToEmailList: (email, name) => dispatch(saveUserToEmailList(email, name)),
-    updateMailiglistNotification: (notificationData) => dispatch(updateMailiglistNotification(notificationData))
+    updateMailiglistNotification: (notificationData) => dispatch(updateMailiglistNotification(notificationData)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

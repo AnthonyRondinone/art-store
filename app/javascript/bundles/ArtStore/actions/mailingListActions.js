@@ -13,7 +13,6 @@ export const saveUserToEmailList = (email, name) => {
             body: JSON.stringify({ email, name }),
         })
         const notifications = await response.json();
-        debugger
         let notificationData;
         response.status === 200 ?
             notificationData = { type: "ok", notifications: notifications }

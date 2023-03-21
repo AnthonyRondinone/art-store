@@ -1,1 +1,2 @@
-export const UPDATE_PAINTINGS = "UPDATE_PAINTINGS";
+export const SET_PAINTINGS = "SET_PAINTINGS";
+export const ADD_PAINTING = "ADD_PAINTING";

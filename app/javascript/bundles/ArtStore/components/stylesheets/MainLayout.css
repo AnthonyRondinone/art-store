@@ -15,6 +15,11 @@
 
 header {
     padding: 2em 0 2em 0;
+    position: fixed;
+    top: -6px;
+    width: 100%;
+    z-index: 1000;
+    background: white;
 }
 
 .main {
@@ -22,6 +27,7 @@ header {
     justify-content: center;
     flex: 1;
     height: 100%;
+    margin-top: 5em;
 }
 
 .left {
@@ -156,16 +162,15 @@ li {
     height: 100%
 }
 
-.thumb-inner {
+.alt-image-thumb-inner {
     display: flex;
     min-width: 0;
     overflow: hidden
 }
 
-.thumb {
+.alt-image-thumb {
     display: inline-flex;
     border-radius: 2;
-    border: 1px solid #eaeaea;
     margin-bottom: 8;
     margin-right: 8;
     width: 100px;
@@ -196,12 +201,14 @@ li {
     margin-right: auto;
 }
 
-.thumbs-container {
+.alt-image-thumb-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 16;
     justify-content: center;
+    width: 400px;
+    margin: auto;
 }
 
 /* Details for Painting */
