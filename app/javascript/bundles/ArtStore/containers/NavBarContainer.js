@@ -1,6 +1,6 @@
 
 import { connect } from 'react-redux';
-import NavBar from '../components/navBar/NavBar';
+import { NavBar } from '../components/navBar/NavBar';
 import { saveUserToEmailList, updateMailiglistNotification } from '../actions/mailingListActions'
 
 const mapStateToProps = (state) => ({

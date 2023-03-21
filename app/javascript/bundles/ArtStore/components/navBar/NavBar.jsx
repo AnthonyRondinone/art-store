@@ -2,16 +2,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { NavBarOption } from './NavBarOption';
 
-const NavBar = ({ mailingListNotifications, saveUserToEmailList, updateMailiglistNotification }) => {
-
+export const NavBar = ({
+    mailingListNotifications,
+    saveUserToEmailList,
+    updateMailiglistNotification,
+}) => {
     const navOptions = () => {
-        return ['GALLERY', 'MAILING LIST', 'THE STORY', 'CONTACT'].map((navOption, i) => {
+        return ['GALLERY', 'MAILING LIST', 'THE STORY', 'CONTACT'].map((optionName, i) => {
             return <NavBarOption 
                         mailingListNotifications={mailingListNotifications}
                         updateMailiglistNotification={updateMailiglistNotification}
                         saveUserToEmailList={saveUserToEmailList}
                         key={i} 
-                        title={navOption} 
+                        optionName={optionName} 
                     />
         })
     }
@@ -22,6 +25,8 @@ const NavBar = ({ mailingListNotifications, saveUserToEmailList, updateMailiglis
     </ul>
 )};
 
-NavBar.propTypes = {};
-
-export default NavBar;
+NavBar.propTypes = {
+    mailingListNotifications: PropTypes.object.isRequired,
+    saveUserToEmailList: PropTypes.func.isRequired,
+    updateMailiglistNotification: PropTypes.func.isRequired,
+}

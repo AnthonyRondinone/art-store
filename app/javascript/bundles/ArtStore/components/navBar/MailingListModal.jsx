@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import React, { useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -9,30 +10,24 @@ export const MailingListModal = ({
     updateMailiglistNotification,
 }) => {
     const [show, setShow] = useState(false);
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-
-
-    const handleClose = () => {
-        updateMailiglistNotification({ type: "ok", notifications: [] });
-        setEmail('');
-        setName('');
-        setShow(false);
-    }
+    const newFanDetailRef = {
+        name: useRef(),
+        email: useRef(),
+    };
 
     const handleShow = () => setShow(true);
+    
+    const handleClose = () => {
+        updateMailiglistNotification({ type: "ok", notifications: [] });
+        setShow(false);
+    };
 
     const handleSubmit = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
-            saveUserToEmailList(email, name);
+            saveUserToEmailList(newFanDetailRef.email.current.value, newFanDetailRef.name.current.value);
         }
-    }
-
-    const handleChange = (e) => {
-        const value = e.target.value;
-        e.target.type === 'email' ? setEmail(value) : setName(value);
-    }
+    };
 
     const showNotifications = () => {
         if (mailingListNotifications.notifications.length > 0) {
@@ -51,7 +46,7 @@ export const MailingListModal = ({
                 </div>
             )
         }
-    }
+    };
 
     return (
         <>
@@ -73,8 +68,7 @@ export const MailingListModal = ({
                                 placeholder="name@example.com"
                                 autoFocus
                                 onKeyDown={(e) => handleSubmit(e)}
-                                onChange={(e) => handleChange(e)}
-                                value={email}
+                                ref={newFanDetailRef.email}
                             />
                         </Form.Group>
                         <Form.Group
@@ -84,8 +78,7 @@ export const MailingListModal = ({
                             <Form.Label>Name</Form.Label>
                             <Form.Control
                                 type="name" 
-                                onChange={(e) => handleChange(e)} 
-                                value={name} 
+                                ref={newFanDetailRef.name}
                             />
                         </Form.Group>
                         {showNotifications()}
@@ -95,11 +88,17 @@ export const MailingListModal = ({
                     <Button className="secondary-button" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button className="primary-button" onClick={() => saveUserToEmailList(email, name)}>
+                    <Button className="primary-button" onClick={() => saveUserToEmailList(newFanDetailRef.email.current.value, newFanDetailRef.name.current.value)}>
                         Save Changes
                     </Button>
                 </Modal.Footer>
             </Modal>
         </>
     );
+}
+
+MailingListModal.propTypes = {
+    mailingListNotifications: PropTypes.object.isRequired,
+    saveUserToEmailList: PropTypes.func.isRequired,
+    updateMailiglistNotification: PropTypes.func.isRequired,
 }

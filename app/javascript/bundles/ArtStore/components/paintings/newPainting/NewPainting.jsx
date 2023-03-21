@@ -1,47 +1,38 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import { ImageEditor } from './ImageEditor';
+import React, { useState, useRef } from 'react';
+import { ImagesEditor } from './ImagesEditor';
 import { DetailsEditor } from './DetailsEditor';
 
 export const NewPainting = ({
     createPainting,
 }) => {
     const [featuredImage, setFeaturedImage] = useState(null);
-    const [featuredImageURLData, setFeaturedImageURLData] = useState({ image_url: ''});
     const [altImages, setAltImages] = useState([]);
-    const [altImageURLs, setAltImageURLs] = useState([]);
+    const detailRefs = {
+        title: useRef(),
+        dimensions: useRef(),
+        price: useRef(),
+        medium: useRef(),
+        story: useRef(),
+    };
 
-    const [details, setDetails] = useState({
-        title: '',
-        dimensions: '',
-        price: '',
-        medium: '',
-        story: '',
-    })
-
-    const handleSubmit = (e, details, featuredImage, altImages) => {
+    const handleSubmit = (e, detailRefs, featuredImage, altImages) => {
         e.preventDefault();
-        createPainting(details, featuredImage, altImages);
-    }  
+        createPainting(detailRefs, featuredImage, altImages);
+    };
 
     return (
         <div>
-            <ImageEditor
+            <ImagesEditor
                 setAltImages={setAltImages}
-                setAltImageURLs={setAltImageURLs}
-                altImageURLs={altImageURLs}
-                featuredImage={featuredImage}
                 setFeaturedImage={setFeaturedImage}
-                featuredImageURLData={featuredImageURLData}
-                setFeaturedImageURLData={setFeaturedImageURLData}
             />
             <DetailsEditor
-                details={details}
-                setDetails={setDetails}
+                detailRefs={detailRefs}
             />
             <button 
                 className='secondary-button'
-                onClick={(e) => handleSubmit(e, details, featuredImage, altImages)}
+                onClick={(e) => handleSubmit(e, detailRefs, featuredImage, altImages)}
             >
                 Save
             </button>

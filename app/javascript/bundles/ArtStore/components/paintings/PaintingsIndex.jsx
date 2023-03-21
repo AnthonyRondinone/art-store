@@ -20,16 +20,13 @@ export const PaintingsIndex = ({
                     to={`/painting/${painting.id}`}
                     state={painting}
                 >
-                    <li
-                        className="li-painting-contain"
-                        key={painting.id}
-                    >
-                            <FeaturedImage
-                                featuredImageURLData={painting.featured_image_url_data}
-                            />
-                            <div className="painting-contain-title painting-title" >
-                                {painting.title}
-                            </div>
+                    <li className="li-painting-contain">
+                        <FeaturedImage
+                            featuredImageURLData={painting.featured_image_url_data}
+                        />
+                        <div className="painting-contain-title painting-title" >
+                            {painting.title}
+                        </div>
                     </li>
                 </Link>
             )
@@ -38,7 +35,7 @@ export const PaintingsIndex = ({
 
     return (
         <ul>
-            {paintings ? createPaintingsList(paintings) : "THE GALLERY"}
+            {paintings && createPaintingsList(paintings)}
         </ul>
     )
 };

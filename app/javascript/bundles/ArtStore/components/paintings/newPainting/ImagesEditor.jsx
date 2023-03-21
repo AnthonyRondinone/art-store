@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FeaturedImage } from '../paintingSubComponents';
-export const ImageEditor = ({
+export const ImagesEditor = ({
     setFeaturedImage,
-    featuredImageURLData,
-    setFeaturedImageURLData,
     setAltImages,
-    setAltImageURLs,
-    altImageURLs,
 }) => {
+    const [featuredImageURLData, setFeaturedImageURLData] = useState({ image_url: '' });
+    const [altImageURLs, setAltImageURLs] = useState([]);
 
     const {
         getRootProps: getRootPropsFeaturedImage,
@@ -52,6 +50,24 @@ export const ImageEditor = ({
         }
     });
 
+    const featuredImageUploader = (
+        <div {...getRootPropsFeaturedImage({ className: 'dropzone' })}>
+            <div className='dropzone-upload-container'>
+                <input {...getInputPropsFeaturedImage()} />
+                <p className='dropzone-prompt' >Drag 'n' drop Featured Image here</p>
+            </div>
+        </div>
+    )
+
+    const altImagesUploader = (
+        <div {...getRootPropsAltImages({ className: 'dropzone' })}>
+            <div className='dropzone-upload-container'>
+                <input {...getInputPropsAltImages()} />
+                <p className='dropzone-prompt' >Drag 'n' drop Alt Images here</p>
+            </div>
+        </div>
+    )
+
     const altImageThumbNails = altImageURLs.map((altImageURL, idx) => (
         <div className='img-wrap' key={`${idx}`} >
             <span className="close" >&times;</span>
@@ -69,18 +85,8 @@ export const ImageEditor = ({
     return (
         <section className="container">
             <div className='drop-zone-contain'>
-                <div {...getRootPropsFeaturedImage({ className: 'dropzone' })}>
-                    <div className='dropzone-upload-container'>
-                        <input {...getInputPropsFeaturedImage()} />
-                        <p className='dropzone-prompt' >Drag 'n' drop Featured Image here</p>
-                    </div>
-                </div>
-                <div {...getRootPropsAltImages({ className: 'dropzone' })}>
-                    <div className='dropzone-upload-container'>
-                        <input {...getInputPropsAltImages()} />
-                        <p className='dropzone-prompt' >Drag 'n' drop Alt Images here</p>
-                    </div>
-                </div>
+                {featuredImageUploader}
+                {altImagesUploader}
             </div>
             <FeaturedImage
                 featuredImageURLData={featuredImageURLData}
@@ -92,13 +98,7 @@ export const ImageEditor = ({
     );
 }
 
-ImageEditor.propTypes = {
+ImagesEditor.propTypes = {
     setFeaturedImage: PropTypes.func.isRequired,
-    setFeaturedImageURLData: PropTypes.func.isRequired,
     setAltImages: PropTypes.func.isRequired,
-    setAltImageURLs: PropTypes.func.isRequired,
-    featuredImageURLData: PropTypes.shape({
-        image_url: PropTypes.string
-    }).isRequired,
-    altImageURLs: PropTypes.array.isRequired,
 };

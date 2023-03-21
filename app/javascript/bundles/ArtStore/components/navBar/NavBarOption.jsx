@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router-dom'
 import { MailingListModal } from './MailingListModal';
 
 export const NavBarOption = ({
-    title,
+    optionName,
     mailingListNotifications,
     saveUserToEmailList,
     updateMailiglistNotification,
 }) => {
-    const linkTo = title.replace(/\s/g, '').toLowerCase();
+    const linkTo = optionName.replace(/\s/g, '').toLowerCase();
     return (
-        title === 'MAILING LIST' ?
+        optionName === 'MAILING LIST' ?
         <MailingListModal 
             mailingListNotifications={mailingListNotifications}
             saveUserToEmailList={saveUserToEmailList}
@@ -18,7 +19,14 @@ export const NavBarOption = ({
         />
          :
         <li>
-            <Link className='nav-option-link' to={`/${linkTo}`}>{title}</Link>
+            <Link className='nav-option-link' to={`/${linkTo}`}>{optionName}</Link>
         </li>
     )
 };
+
+NavBarOption.propTypes = {
+    optionName: PropTypes.string.isRequired,
+    mailingListNotifications: PropTypes.object.isRequired,
+    saveUserToEmailList: PropTypes.func.isRequired,
+    updateMailiglistNotification: PropTypes.func.isRequired,
+}

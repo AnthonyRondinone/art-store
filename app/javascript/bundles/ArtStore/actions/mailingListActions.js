@@ -11,13 +11,13 @@ export const saveUserToEmailList = (email, name) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, name }),
-        })
+        });
         const notifications = await response.json();
         let notificationData;
         response.status === 200 ?
             notificationData = { type: "ok", notifications: notifications }
             :
             notificationData = { type: "error", notifications: notifications }
-        dispatch(updateMailiglistNotification(notificationData))
+        dispatch(updateMailiglistNotification(notificationData));
     }
 };

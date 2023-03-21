@@ -10,7 +10,7 @@ export const fetchPaintings = () => {
         const response = await fetch('/paintings', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
-        })
+        });
         const paintingsData = await response.json();
         if (response.status === 200) {
             dispatch(setPaintings(paintingsData));
@@ -23,18 +23,18 @@ export const addPainting = (paintingData) => ({
     payload: paintingData,
 });
 
-export const createPainting = (details, featuredImage, altImages) => {
+export const createPainting = (detailRefs, featuredImage, altImages) => {
     return async dispatch => {
         const formData = new FormData();
-        formData.append("painting[title]", details.title);
-        formData.append("painting[dimensions]", details.dimensions);
-        formData.append("painting[price]", details.price);
-        formData.append("painting[medium]", details.medium);
-        formData.append("painting[story]", details.story);
+        formData.append("painting[title]", detailRefs.title.current.value);
+        formData.append("painting[dimensions]", detailRefs.dimensions.current.value);
+        formData.append("painting[price]", detailRefs.price.current.value);
+        formData.append("painting[medium]", detailRefs.medium.current.value);
+        formData.append("painting[story]", detailRefs.story.current.value);
         formData.append("painting[featured_image]", featuredImage);
         altImages.forEach(
             (altImage) => formData.append("painting[alt_images][]", altImage)
-        )
+        );
 
         const response = await fetch('/paintings', {
             method: 'POST',

@@ -11,7 +11,7 @@ export const PaintingShow = () => {
     const [altImagesURLData, setAltImagesURLData] = useState(
             painting.alt_images_url_data
         );
-    const [allImages] = useState([...altImagesURLData, featuredImageURLData]);
+    const allImages = [...altImagesURLData, featuredImageURLData];
     const [featuredImageId, setFeaturedImageId] = useState(painting.featured_image_url_data.id);
 
     useEffect(() => {
