@@ -35,7 +35,7 @@ export const PaintingsIndex = ({
 
     return (
         <ul>
-            {paintings && createPaintingsList(paintings)}
+            {createPaintingsList(paintings)}
         </ul>
     )
 };

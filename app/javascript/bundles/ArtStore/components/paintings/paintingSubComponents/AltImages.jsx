@@ -6,7 +6,7 @@ export const AltImages = ({
     setFeaturedImageId,
 }) => {
     const altImageThumbNails = altImagesURLData.map((altImageURLData, idx) => (
-        <div className='img-wrap' key={`${idx}`} >
+        <div className='img-wrap' key={idx} >
             <div
                 className='alt-image-thumb' 
                 onClick={() => setFeaturedImageId(altImageURLData.id)}

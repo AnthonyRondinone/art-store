@@ -4,7 +4,7 @@ import NavBarContainer from '../containers/NavBarContainer';
 import TheStoryContainer from '../containers/TheStoryContainer';
 import PaintingsIndexContainer from '../containers/PaintingsIndexContainer';
 import ContactContainer from '../containers/ContactContainer';
-import NewPainting from '../containers/NewPainting';
+import NewPaintingContainer from '../containers/NewPaintingContainer';
 import { PaintingShow } from './paintings/PaintingShow';
 import './stylesheets/MainLayout.css'
 import { Routes, Route } from 'react-router-dom';
@@ -23,7 +23,7 @@ const ArtStore = () => (
                     <Route path="/thestory" element={<TheStoryContainer /> } />
                     <Route path="/contact" element={<ContactContainer /> } />
                     <Route path="/painting/:id" element={<PaintingShow /> } />
-                    <Route path="/painting/new" element={<NewPainting /> } />
+                    <Route path="/painting/new" element={<NewPaintingContainer /> } />
                 </Routes>
             </main>
             <aside className='right' />

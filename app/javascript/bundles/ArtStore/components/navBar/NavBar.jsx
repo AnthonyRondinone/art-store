@@ -9,12 +9,12 @@ export const NavBar = ({
 }) => {
     const optionNames = ['GALLERY', 'MAILING LIST', 'THE STORY', 'CONTACT'];
     const navOptions = () => {
-        return optionNames.map((optionName, i) => {
+        return optionNames.map((optionName) => {
             return <NavBarOption 
                         mailingListNotifications={mailingListNotifications}
                         updateMailiglistNotification={updateMailiglistNotification}
                         saveUserToEmailList={saveUserToEmailList}
-                        key={i} 
+                        key={optionName} 
                         optionName={optionName} 
                     />
         })
