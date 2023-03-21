@@ -12,7 +12,7 @@ export const PaintingsIndex = ({
         if (paintings.length === 0) fetchPaintings();
     }, [])
 
-    const createPaintingsList = (paintings) => {
+    const paintingsList = (paintings) => {
         return paintings.map((painting) => {
             return (
                 <Link
@@ -35,7 +35,7 @@ export const PaintingsIndex = ({
 
     return (
         <ul>
-            {createPaintingsList(paintings)}
+            {paintingsList(paintings)}
         </ul>
     )
 };
