@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FeaturedImage } from '../paintingSubComponents';
+
 export const ImagesEditor = ({
     setFeaturedImage,
     setAltImages,

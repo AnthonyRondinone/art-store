@@ -318,3 +318,17 @@ input, textarea {
     font-size: 14px;
     max-width: 450px;
 }
+
+.loaderImg {
+    width: 200px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.loader-contain {
+    z-index: 1000;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+}

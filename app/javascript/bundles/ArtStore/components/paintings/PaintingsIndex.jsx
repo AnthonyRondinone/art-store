@@ -7,7 +7,6 @@ export const PaintingsIndex = ({
     fetchPaintings,
     paintings,
 }) => {
-
     useEffect(() => {
         if (paintings.length === 0) fetchPaintings();
     }, [])
@@ -47,7 +46,7 @@ PaintingsIndex.propTypes = {
         dimensions: PropTypes.string.isRequired,
         medium: PropTypes.string.isRequired,
         price: PropTypes.string.isRequired,
-        story: PropTypes.string.isRequired,
+        // story: PropTypes.string.isRequired,
         alt_images_url_data: PropTypes.arrayOf(PropTypes.shape({
             image_url: PropTypes.string.isRequired,
             id: PropTypes.number.isRequired,

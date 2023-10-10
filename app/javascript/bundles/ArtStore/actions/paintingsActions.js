@@ -1,4 +1,5 @@
 import { SET_PAINTINGS, ADD_PAINTING } from '../constants/paintings';
+import { updateLoading } from './loadingActions'
 
 export const setPaintings = (paintingsData) => ({
     type: SET_PAINTINGS,
@@ -23,14 +24,14 @@ export const addPainting = (paintingData) => ({
     payload: paintingData,
 });
 
-export const createPainting = (detailRefs, featuredImage, altImages) => {
+export const createPainting = (details, featuredImage, altImages) => {
     return async dispatch => {
+        dispatch(updateLoading(true))
         const formData = new FormData();
-        formData.append("painting[title]", detailRefs.title.current.value);
-        formData.append("painting[dimensions]", detailRefs.dimensions.current.value);
-        formData.append("painting[price]", detailRefs.price.current.value);
-        formData.append("painting[medium]", detailRefs.medium.current.value);
-        formData.append("painting[story]", detailRefs.story.current.value);
+
+        Object.entries(details).forEach(([key, value]) => {
+            formData.append(`painting[${key}]`, value)
+        })
         formData.append("painting[featured_image]", featuredImage);
         altImages.forEach(
             (altImage) => formData.append("painting[alt_images][]", altImage)
@@ -44,6 +45,7 @@ export const createPainting = (detailRefs, featuredImage, altImages) => {
         const paintingData = await response.json();
         if (response.status === 200) {
             dispatch(addPainting(paintingData))
+            dispatch(updateLoading(false))
         }
     }
 }

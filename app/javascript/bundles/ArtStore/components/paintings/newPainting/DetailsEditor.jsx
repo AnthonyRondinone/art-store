@@ -1,46 +1,50 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+const detailTypes = ['title', 'dimensions', 'price', 'medium']
+
 export const DetailsEditor = ({
-    detailRefs,
+    details,
+    setDetails
 }) => {
+
+    const handleChange = (e) => {
+        setDetails((prevDetails) => {
+            return {
+                ...prevDetails,
+                [e.target.className]: e.target.value
+            }
+        })
+    }
+
+    const detailInputs = (
+        detailTypes.map((detailType) => {
+            return (
+                <input
+                    key={detailType}
+                    name={detailType}
+                    className={detailType}
+                    placeholder={`${detailType[0].toUpperCase()}${detailType.slice(1)}`}
+                    value={details[detailType] || ''}
+                    onChange={handleChange}
+                />
+            )
+        })
+    )
+
     return (
         <div className='details-contain' >
-            <input 
-                className='title'
-                placeholder='Title'
-                ref={detailRefs.title}
-            />
-            <input 
-                className='dimensions'
-                placeholder='Dimensions'
-                ref={detailRefs.dimensions}
-            />
-            <input 
-                className='price'
-                placeholder='Price'
-                ref={detailRefs.price}
-            />
-            <input 
-                className='medium'
-                placeholder='Medium'
-                ref={detailRefs.medium}
-            />
-            <label>The Story:</label>
-            <textarea 
-                className='story'
-                ref={detailRefs.story}
-            />
+            {detailInputs}
         </div>
     );
 }
 
-DetailsEditor.propTypes = {
-    detailRefs: PropTypes.shape({
-        title: PropTypes.object.isRequired,
-        dimensions: PropTypes.object.isRequired,
-        price: PropTypes.object.isRequired,
-        medium: PropTypes.object.isRequired,
-        story: PropTypes.object.isRequired,
-    }).isRequired
-}
+// DetailsEditor.propTypes = {
+//     detailRefs: PropTypes.shape({
+//         title: PropTypes.object.isRequired,
+//         dimensions: PropTypes.object.isRequired,
+//         price: PropTypes.object.isRequired,
+//         medium: PropTypes.object.isRequired,
+//         story: PropTypes.object.isRequired,
+//     }).isRequired
+// }
